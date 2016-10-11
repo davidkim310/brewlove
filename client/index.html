@@ -2,12 +2,24 @@
 <html ng-app="BreweryAngular">
   <head>
     <meta charset="utf-8">
-    <title>Brewery Info</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <script src="https://use.fontawesome.com/6ae0aaa4de.js"></script>
+    <link rel="stylesheet" href="/css/master.css" media="screen" title="no title">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>brewlove</title>
   </head>
   <body>
+    <nav class="nav">
+      <div class="nav-wrapper">
+        <ul>
+        <li><i class="fa fa-beer" aria-hidden="true"></i></li>
+        <li><a href="#home" class="logo">brewlove</a></li>
+      </ul>
+      </div>
+    </nav>
     <div> <ui-view></ui-view><div>
   </body>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
   <script src='app.js'></script>
   <script src="/home/home.js"></script>

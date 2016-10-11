@@ -1,0 +1,17 @@
+.name {
+  font-weight: bold;
+}
+.nav {
+  background-color: #f4d742
+}
+.nav-wrapper {
+  color: white
+}
+.fa-beer {
+  font-size: 2em;
+  margin-left: 1em
+}
+
+body {
+  background-image: url("http://wallpapercave.com/wp/frBrwbO.jpg")
+}

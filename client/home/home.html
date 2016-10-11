@@ -4,9 +4,17 @@
     <button type="submit">Submit</button>
   </form>
   <div ng-controller='homeCtrl'>
-    <ul>
-      <li ng-repeat = "key in data">{{key.data}}</li>
-    </ul>
-    <img src="{{data.images}}" alt="" />
+      <div class="name" ng-if="data.data[0]">
+        {{data.data[0].name}}
+        <img src="{{data.data[0].images.medium}}" alt="" />
+        <div class="description">
+          {{data.data[0].description}}
+        </div>
+      <div class="button" ng-if="data.data[0].website">
+        <a href="{{data.data[0].website}}">
+          <button >Go to website</button>
+        </a>
+      </div>
+    </div>
   </div>
 </div>
