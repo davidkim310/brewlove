@@ -13,6 +13,11 @@ angular.module('BreweryAngular', [
       templateUrl: 'home/home.html',
       controller: "homeCtrl"
     })
+    // .state('favorites',{
+    //   url: '/favorites',
+    //   templateUrl: 'favorites/favorites.html'
+    //   controller: 'favoritesCtrl'
+    // })
 })
   .factory("brewerydescription", function($http){
     let getBrewery = function(location){

@@ -1,11 +1,30 @@
+//initialize the express framework
 const express = require('express')
+//express setup
 const app = express();
 const http = require('http');
 const mongoose = require('mongoose')
 // const bodyParser = require('body-parser')
-const port = 4040 || process.env.PORT
+const port = process.env.PORT || 4000;
+// var mongoose = require('mongoose')
 
-app.use(express.static('./Client'));
+mongoose.connect('mongodb://demo:demo@ds047865.mlab.com:47865/mvpdemo');
+
+//here we can check on our mongo connection
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'))
+db.once('open', function(){
+  console.log('Mongodb connection is open');
+})
+
+var FavoriteSchema = new mongoose.Schema({
+  id: String,
+  brewery: String,
+}, {collection: 'FavoritesCollection'});
+
+mongoose.model('Favorite', FavoriteSchema);
+
+app.use(express.static('./client'));
 app.get('/api/brewery', function(req, res){
   console.log('This is working') //This end point is working!
   console.log("this is our query", req.query.brewery);
