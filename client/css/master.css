@@ -15,3 +15,12 @@
 body {
   background-image: url("http://wallpapercave.com/wp/frBrwbO.jpg")
 }
+
+.rendercontainer {
+  text-align: center;
+  width: 500px;
+}
+.render {
+  display: inline;
+  /*width: 500px;*/
+}
