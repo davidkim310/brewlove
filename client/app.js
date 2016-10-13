@@ -19,14 +19,14 @@ angular.module('BreweryAngular', [
     //   controller: 'favoritesCtrl'
     // })
 })
-  .factory("brewerydescription", function($http){
-    let getBrewery = function(location){
-      return $http.get('/api/brewery?brewery=' + location)
-      .then(function(data){
-        return data
-      })
-    }
-    return {
-      getBrewery:getBrewery
-    }
-  })
+.factory("brewerydescription", function($http){
+  let getBrewery = function(location){
+    return $http.get('/api/brewery?brewery=' + location)
+    .then(function(data){
+      return data
+    })
+  }
+  return {
+    getBrewery:getBrewery
+  }
+})
