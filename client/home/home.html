@@ -15,8 +15,8 @@
         <a href="{{data.data[0].website}}">
           <button >Go to website</button>
         </a>
-        <div class="addbutton">
-          <button>Add to Favorites</button>
+        <div class="addbutton" ng-controller='favoritesCtrl'>
+          <button type="submit" ng-click="addToFavorites(data.data[0].name)">Favorite!</button>
         </div>
       </div>
     </div>

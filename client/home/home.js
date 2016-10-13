@@ -25,6 +25,7 @@ angular.module("BreweryAngular.home", [])
       console.log("location is: ", dataFromServer);
       console.log("data is: ", dataFromServer.data);
       $scope.data = dataFromServer.data;
+      console.log("scope.data", $scope.data);
     })
   }
 })

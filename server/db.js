@@ -14,7 +14,5 @@ db.once('open', function(){
 var FavoriteSchema = new mongoose.Schema({
   brewery: String,
 }, {collection: 'FavoritesCollection'});
-
-mongoose.model('Favorite', FavoriteSchema);
-
-module.export = db
+//export the model that we are working with
+module.exports = mongoose.model('Favorite', FavoriteSchema);

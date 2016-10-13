@@ -4,14 +4,13 @@ const express = require('express')
 const app = express();
 const http = require('http');
 const mongoose = require('mongoose')
-// const bodyParser = require('body-parser')
+const bodyParser = require('body-parser')
 const port = process.env.PORT || 4000;
 // var mongoose = require('mongoose')
-const db = require('./db.js')
-
+const Favorite = require('./db.js')
+app.use(bodyParser())
 app.use(express.static('./client'));
 app.get('/api/brewery', function(req, res){
-  console.log('This is working') //This end point is working!
   console.log("this is our query", req.query.brewery);
   // //get rid of any spaces
   var brewery = req.query.brewery.replace(/\s/g, ' ');
@@ -31,6 +30,22 @@ app.get('/api/brewery', function(req, res){
     });
   });
 })
+app.post('/Favorites',function(req, res){
+  Favorite.findOne({favorites: req.body.brewery}, function(err, data){
+    if(data === null) {
+      return Favorite.create({
+        brewery: req.body.brewery
+      })
+    }
+  })
+  .then(function(result){
+    res.status(200).send(result)
+  })
+  .catch(function(err){
+    res.status(404).send(err)
+  })
+})
+
 app.set("port", port)
 app.listen(port)
 console.log(`server listening on port ${port}`);
