@@ -1,8 +1,8 @@
-<div class="favoritesContainer">
+<div class="favoritesContainer" ng-init="getFavorites()">
 <div>
   <h4>Favorites</h4>
-  <ul ng-repeat="breweries in list">
-    <li>{{breweries}}</li>
+  <ul ng-controller="favoritesCtrl" ng-repeat="breweries in list.data">
+    <li>{{breweries.brewery}}</li>
   </ul>
 </div>
 </div>

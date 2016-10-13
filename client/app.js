@@ -32,14 +32,14 @@ angular.module('BreweryAngular', [
 })
 .factory("favoritesFactory", function($http){
   let getFavorites = function(){
-    return $http.get('/favorites')
+    console.log("we are in getFavorites");
+    return $http.get('/Favorites')
     .then(function(favorites){
+      // console.log("favorites", favorites);
       return favorites;
     })
   }
   let favorite = function(name){
-    console.log("in favoritesFactory.favorite");
-    console.log("name", name);
     return $http.post('/Favorites', {
       'brewery': name
     })
@@ -50,13 +50,15 @@ angular.module('BreweryAngular', [
   }
 })
 .controller('favoritesCtrl', function($scope, favoritesFactory){
-  // $scope.list = [];
-  // $scope.getFavorites = function(){
-  //   favoritesFactory.getFavorites()
-  //     .then(function(data){
-  //       $scope.list = data
-  //     })
-  // }
+  $scope.list = [];
+  $scope.getFavorites = function(){
+    console.log("we are in getfavorites ctrl");
+    favoritesFactory.getFavorites()
+      .then(function(data){
+        $scope.list = data
+        console.log("scopelist", $scope.list);
+      })
+  }
   $scope.addToFavorites = function(name){
     console.log("name in controller", name);
     console.log("we are in add to favorites");

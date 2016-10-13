@@ -30,7 +30,8 @@ app.get('/api/brewery', function(req, res){
     });
   });
 })
-app.post('/Favorites',function(req, res){
+app.post('/Favorites', function(req, res){
+  console.log("in post line 34");
   Favorite.findOne({favorites: req.body.brewery}, function(err, data){
     if(data === null) {
       return Favorite.create({
@@ -44,6 +45,20 @@ app.post('/Favorites',function(req, res){
   .catch(function(err){
     res.status(404).send(err)
   })
+})
+app.get('/Favorites', function(req, res){
+  console.log("line 49 get");
+  Favorite.find({}, function(err, data){
+    if(err){
+      console.log("error in get", err);
+    }
+  })
+  .then(function(result){
+    res.status(200).send(result)
+  })
+  // .catch(function(err){
+  //   res.status(400).send(err)
+  // })
 })
 
 app.set("port", port)
