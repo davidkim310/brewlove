@@ -19,7 +19,7 @@ app.get('/api/brewery', function(req, res){
     + brewery +
     "&type=brewery&key=fac5a6275ee18b2edce889344e63c2e9"
   };
-  //set a get request on the url provided above
+  // set a get request on the url provided above
   http.get(url.host, function(response){
     var bodyChunks = "";
     response.on('data', function(chunk){
@@ -48,7 +48,7 @@ app.post('/Favorites', function(req, res){
 })
 app.get('/Favorites', function(req, res){
   console.log("line 49 get");
-  Favorite.find({}, function(err, data){
+  Favorite.find(function(err, data){
     if(err){
       console.log("error in get", err);
     }
@@ -56,9 +56,6 @@ app.get('/Favorites', function(req, res){
   .then(function(result){
     res.status(200).send(result)
   })
-  // .catch(function(err){
-  //   res.status(400).send(err)
-  // })
 })
 
 app.set("port", port)
