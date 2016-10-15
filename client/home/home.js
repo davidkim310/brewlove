@@ -19,12 +19,15 @@ angular.module("BreweryAngular.home", [])
 .controller("homeCtrl", function($scope, brewerydescription){
   $scope.location;
   $scope.data;
+  $scope.loading = false;
   $scope.submitForm = function(location){
+    $scope.loading = true;
     brewerydescription.getBrewery(location)
     .then(function(dataFromServer){
       console.log("location is: ", dataFromServer);
       console.log("data is: ", dataFromServer.data);
       $scope.data = dataFromServer.data;
+      $scope.loading = false;
       console.log("scope.data", $scope.data);
     })
   }

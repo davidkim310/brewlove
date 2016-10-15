@@ -5,6 +5,7 @@
     <button type="submit">Submit</button>
   </form>
   <div ng-controller='homeCtrl'>
+    <img ng-show="loading" src="../assets/loading.gif"/>
       <div class="name" ng-if="data.data[0]">
         {{data.data[0].name}}
         <img src="{{data.data[0].images.medium}}" alt="" />
@@ -16,7 +17,7 @@
           <button >Go to website</button>
         </a>
         <div class="addbutton" ng-controller='favoritesCtrl'>
-          <button type="submit" ng-click="addToFavorites(data.data[0].name)">Favorite!</button>
+          <button type="submit" ng-click="addToFavorites(data.data[0].name, data.data[0].website)">Favorite!</button>
         </div>
       </div>
     </div>

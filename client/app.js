@@ -40,9 +40,10 @@ angular.module('BreweryAngular', [
       return favorites;
     })
   }
-  let favorite = function(name){
+  let favorite = function(name, website){
     return $http.post('/Favorites', {
-      'brewery': name
+      'brewery': name,
+      'website': website
     })
   }
   return {

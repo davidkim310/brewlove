@@ -9,9 +9,9 @@ angular.module('BreweryAngular.favorites', [])
         console.log("scopelist", $scope.list);
       })
   }
-  $scope.addToFavorites = function(name){
+  $scope.addToFavorites = function(name, website){
     console.log("name in controller", name);
     console.log("we are in add to favorites");
-    favoritesFactory.favorite(name)
+    favoritesFactory.favorite(name, website)
   }
 })

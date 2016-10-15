@@ -9,13 +9,11 @@
 }
 .fa-beer {
   font-size: 2em;
-  margin-left: 1em;
+  margin-left: 0.5em;
 }
-
 body {
   background-image: url("http://wallpapercave.com/wp/frBrwbO.jpg");
 }
-
 .rendercontainer {
   text-align: center;
   width: 500px;

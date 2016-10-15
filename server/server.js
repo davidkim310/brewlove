@@ -1,11 +1,13 @@
 //initialize the express framework
 const express = require('express')
+const request = require('request')
 //express setup
 const app = express();
 const http = require('http');
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const port = process.env.PORT || 4000;
+
 // var mongoose = require('mongoose')
 const Favorite = require('./db.js')
 app.use(bodyParser())
@@ -29,13 +31,15 @@ app.get('/api/brewery', function(req, res){
       res.send(bodyChunks);
     });
   });
+
 })
 app.post('/Favorites', function(req, res){
   console.log("in post line 34");
   Favorite.findOne({favorites: req.body.brewery}, function(err, data){
     if(data === null) {
       return Favorite.create({
-        brewery: req.body.brewery
+        brewery: req.body.brewery,
+        website: req.body.website
       })
     }
   })

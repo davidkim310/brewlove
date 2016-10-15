@@ -13,6 +13,7 @@ db.once('open', function(){
 //create the schema for our favorite breweries
 var FavoriteSchema = new mongoose.Schema({
   brewery: String,
+  website: String
 }, {collection: 'FavoritesCollection'});
 //export the model that we are working with
 module.exports = mongoose.model('Favorite', FavoriteSchema);
